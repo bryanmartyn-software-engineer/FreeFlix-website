@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeFlix | OLED Black Edition</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="text-gradient">Watch Anywhere,</span>
+                    <br>Anytime
+                </h1>
+                <p class="hero-subtitle">Stream the latest movies in stunning OLED black</p>
+                
+                <!-- Featured Search Bar in Hero -->
+                <div class="hero-search">
+                    <div class="hero-search-wrapper">
+                        <i class="fas fa-search hero-search-icon"></i>
+                        <input type="search" id="hero-search" placeholder="Search 10,000+ movies..." autocomplete="off">
+                        <button class="hero-search-btn" id="hero-search-btn">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="hero-search-tags">
+                        <span class="search-tag">Action</span>
+                        <span class="search-tag">Comedy</span>
+                        <span class="search-tag">Drama</span>
+                        <span class="search-tag">Horror</span>
+                        <span class="search-tag">Sci-Fi</span>
+                    </div>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Movies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4K</span>
+                        <span class="stat-label">Quality</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Streaming</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Category Filters -->
+        <section class="categories-section">
+            <div class="categories-wrapper">
+                <button class="category-btn active" data-category="popular">Popular</button>
+                <button class="category-btn" data-category="now_playing">Now Playing</button>
+                <button class="category-btn" data-category="upcoming">Upcoming</button>
+                <button class="category-btn" data-category="top_rated">Top Rated</button>
+                <button class="category-btn" data-category="trending">Trending</button>
+            </div>
+        </section>
+
+        <!-- Movies Grid Section -->
+        <section class="movies-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-fire" style="color: #E50914;"></i>
+                    <span id="category-title">Popular Movies</span>
+                </h2>
+                <div class="section-line"></div>
+                <div class="section-actions">
+                    <span class="movie-count" id="movie-count">Loading...</span>
+                    <div class="view-options">
+                        <button class="view-option active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-option" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="movies" class="movies-grid"></div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="load-more">
+                    <span>Load More Movies</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="oled-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-triangle">▶</span>
+                <span>FreeFlix</span>
+            </div>
+            <p class="footer-text">© 2024 FreeFlix. Watch anywhere, anytime on perfect OLED black.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
