@@ -892,6 +892,18 @@ header {
     color: white;
 }
 
+/* Fix for star icon in GitHub */
+.meta-tag i.fa-star {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.meta-tag i.fa-star:before {
+    content: "\2605";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
 .movie-overview {
     color: var(--text-secondary);
     font-size: 1.1rem;

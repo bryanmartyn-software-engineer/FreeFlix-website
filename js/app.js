@@ -93,6 +93,14 @@ const utils = {
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
+    },
+
+    // Helper function to escape HTML special characters
+    escapeHtml: (text) => {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 };
 
@@ -180,7 +188,7 @@ const render = {
                 <div class="movie-card" data-id="${movie.id}">
                     <a href="movie.html?id=${movie.id}">
                         <div class="poster-container">
-                            <img src="${poster}" alt="${movie.title}" loading="lazy">
+                            <img src="${poster}" alt="${utils.escapeHtml(movie.title)}" loading="lazy">
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 ${rating}
@@ -189,7 +197,7 @@ const render = {
                                 <p><i class="fas fa-calendar"></i> ${year}</p>
                             </div>
                         </div>
-                        <h3>${movie.title}</h3>
+                        <h3>${utils.escapeHtml(movie.title)}</h3>
                     </a>
                 </div>
             `;
@@ -208,20 +216,20 @@ const render = {
         return `
             <div class="detail-card">
                 <div class="detail-poster">
-                    <img src="${poster}" alt="${movie.title}">
+                    <img src="${poster}" alt="${utils.escapeHtml(movie.title)}">
                 </div>
                 <div class="detail-info">
-                    <h1>${movie.title}</h1>
+                    <h1>${utils.escapeHtml(movie.title)}</h1>
                     
                     <div class="movie-meta">
                         <span class="meta-tag"><i class="fas fa-calendar"></i> ${year}</span>
-                        <span class="meta-tag"><i class="fas fa-star" style="color: #ffd700;"></i> ${rating}/10</span>
+                        <span class="meta-tag"><i class="fas fa-star"></i> ${rating}/10</span>
                         <span class="meta-tag"><i class="fas fa-clock"></i> ${movie.runtime || 'N/A'} min</span>
                         <span class="meta-tag highlight"><i class="fas fa-language"></i> ${movie.original_language?.toUpperCase() || 'EN'}</span>
                     </div>
 
                     <div class="movie-overview">
-                        ${movie.overview || 'No overview available.'}
+                        ${utils.escapeHtml(movie.overview) || 'No overview available.'}
                     </div>
 
                     <a href="${watchLink}" 
