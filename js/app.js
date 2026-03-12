@@ -54,7 +54,7 @@ const utils = {
                 <div class="empty-state">
                     <i class="fas fa-exclamation-circle"></i>
                     <p>${message}</p>
-                    <a href="index.html" class="action-btn" style="margin-top: 20px;">
+                    <a href="index.html" class="action-btn" style="margin-top: 20px; display: inline-block;">
                         <i class="fas fa-home"></i> Go Home
                     </a>
                 </div>
@@ -151,7 +151,7 @@ const render = {
                     ${currentPage !== 'home' ? `
                         <div class="search-wrapper">
                             <i class="fas fa-search search-icon"></i>
-                            <input type="search" id="search" placeholder="Search movies..." value="${searchQuery}">
+                            <input type="search" id="search" placeholder="Search movies...">
                         </div>
                     ` : ''}
                 </div>
@@ -503,12 +503,20 @@ const pages = {
                     if (recommendations.results && recommendations.results.length > 0) {
                         recommendationsContainer.innerHTML = render.movies(recommendations.results.slice(0, 6));
                     } else {
-                        recommendationsContainer.style.display = 'none';
+                        recommendationsContainer.innerHTML = `
+                            <div class="empty-state" style="grid-column: 1/-1;">
+                                <i class="fas fa-film"></i>
+                                <p>No recommendations available</p>
+                            </div>
+                        `;
                     }
                 } catch (error) {
-                    if (recommendationsContainer) {
-                        recommendationsContainer.style.display = 'none';
-                    }
+                    recommendationsContainer.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1/-1;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Failed to load recommendations</p>
+                        </div>
+                    `;
                 }
             }
         } catch (error) {
